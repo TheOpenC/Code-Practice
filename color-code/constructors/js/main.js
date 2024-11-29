@@ -1,20 +1,30 @@
-function createElement(type, text, color){
-    const el = document.createElement(type)
-    el.innerText = text
-    el.style.color = color
-    document.body.append(el)
-    return {
-        el,
-        setText(text) {
-            el.innerText = text
-        },
-        setColor(color) {
-            el.style.color = color
-        }
+function Person(name) {
+    //const this = {}
+    this.name = name
+    this.talk = () => {
+        return `Hello I am ${this.name}`
     }
-    
-
+    // return this
 }
 
-const h1 = createElement('h1', 'Hey guys', 'red')
-h1.setText('Goodbye fellas')
+const sina = new Person('Sina')
+const ben = new Person('Ben')
+const same = new Person('Sam')
+
+
+function SuperElement(type, content) {
+    this.el = document.createElement(type)
+    this.el.innerText = content 
+    document.body.append(this.el)
+    this.el.addEventLister('click', () =>{
+        console.log(this.el)
+    })
+}
+
+const h1 = new SuperElement('h1', 'Hello00!')
+const array = ['a', 'b', 'c']
+
+const myElements = array.map(item => {
+    return new SuperElement('p', item)
+})
+
