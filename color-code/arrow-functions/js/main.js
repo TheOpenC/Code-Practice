@@ -35,6 +35,27 @@ const me2 = {
     }
 }
 
+// example with this
+const me3 = {
+    name: 'Drew',
+    talk(){ // do this
+        return this
+    },
+    arrowTalk: () => { //dont do this
+        return this
+    }
+}
+
+me3.talk()
+//arrowTalk binds to the global
+// talk as a regular method, binds to the me3 object
+// don't use arrow functions inside of objects. Stick with regular functions in this case.
+
+
+
+
+
+
 
 
 
